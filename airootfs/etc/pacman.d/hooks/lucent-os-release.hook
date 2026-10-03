@@ -1,0 +1,13 @@
+# remove from airootfs!
+# Rebrand the os-release shipped by the filesystem package. /etc/issue renders PRETTY_NAME from it.
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = filesystem
+
+[Action]
+Description = Rebranding /usr/lib/os-release as Lucent...
+When = PostTransaction
+Depends = sed
+Exec = /usr/bin/sed -i -E -e "s/^NAME=.*/NAME=Lucent/" -e "s/^PRETTY_NAME=.*/PRETTY_NAME=Lucent/" -e "s/^ID=.*/ID=lucent/" -e "/^ID=/a ID_LIKE=arch" -e "/^(HOME|DOCUMENTATION|SUPPORT|BUG_REPORT|PRIVACY_POLICY)_URL=|^LOGO=/d" /usr/lib/os-release
