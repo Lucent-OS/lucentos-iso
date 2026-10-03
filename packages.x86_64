@@ -47,7 +47,6 @@ kmscon-terminfo
 ldns
 less
 limine
-lftp
 libfido2
 libusb-compat
 linux
@@ -127,3 +126,24 @@ xdg-utils
 xfsprogs
 xl2tpd
 zsh
+
+# Desktop: KDE Plasma (Wayland) with Plasma Login Manager
+plasma-meta
+ark
+dolphin
+firefox
+konsole
+networkmanager
+noto-fonts
+noto-fonts-emoji
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+wireplumber
+
+# Communication
+discord
+
+# Development Tools
+neovim
