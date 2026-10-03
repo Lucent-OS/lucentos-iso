@@ -37,11 +37,22 @@ clean_work_dir() {
     rm -rf --one-file-system -- "${WORK_DIR}"
 }
 
+# Resolve the local package repository before deleting any build state.
+INSTALLER_REPO="${PROFILE_DIR}/installer/repo"
+if [[ ! -f ${INSTALLER_REPO}/lucent-installer.db ]]; then
+    echo "error: build Calamares first with ./installer/build-package.sh (as your normal user)" >&2
+    exit 1
+fi
+mkdir -p "${OUT_DIR}"
+BUILD_PACMAN_CONF="$(mktemp)"
+trap 'rm -f -- "$BUILD_PACMAN_CONF"' EXIT
+sed "s|@LUCENT_INSTALLER_REPO@|${INSTALLER_REPO}|g" "${PROFILE_DIR}/pacman.conf" >"${BUILD_PACMAN_CONF}"
+
 clean_work_dir
 mkdir -p "${OUT_DIR}"
 
 echo "==> Building ISO (work: ${WORK_DIR}, out: ${OUT_DIR})"
-mkarchiso -v -r -w "${WORK_DIR}" -o "${OUT_DIR}" "${PROFILE_DIR}"
+mkarchiso -v -r -C "${BUILD_PACMAN_CONF}" -w "${WORK_DIR}" -o "${OUT_DIR}" "${PROFILE_DIR}"
 
 # mkarchiso -r removes the work dir on success; make sure nothing is left behind.
 clean_work_dir

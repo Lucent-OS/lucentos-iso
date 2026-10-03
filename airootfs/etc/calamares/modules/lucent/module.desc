@@ -1,0 +1,5 @@
+---
+type: job
+name: lucent
+interface: python
+script: main.py

@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = linux
+Target = limine
+
+[Action]
+Description = Updating LucentOS Limine boot files...
+When = PostTransaction
+Depends = limine
+Exec = /usr/local/bin/lucent-update-boot

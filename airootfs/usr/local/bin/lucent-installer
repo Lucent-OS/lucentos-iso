@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ -n ${WAYLAND_DISPLAY:-} && -n ${XDG_RUNTIME_DIR:-} ]]; then
+    display_path="${WAYLAND_DISPLAY}"
+    [[ ${display_path} == /* ]] || display_path="${XDG_RUNTIME_DIR}/${display_path}"
+    exec sudo env QT_QPA_PLATFORM=wayland WAYLAND_DISPLAY="$display_path" \
+        XDG_RUNTIME_DIR=/run/lucent-installer /usr/local/libexec/lucent-installer
+fi
+exec sudo --preserve-env=DISPLAY,XAUTHORITY env QT_QPA_PLATFORM=xcb \
+    /usr/local/libexec/lucent-installer

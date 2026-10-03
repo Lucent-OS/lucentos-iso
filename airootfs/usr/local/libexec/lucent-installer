@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+[[ -d /run/archiso/bootmnt ]] || { echo 'Launch the installer from the LucentOS live ISO.' >&2; exit 1; }
+install -d -m 0700 /run/lucent-installer
+exec /usr/bin/calamares -c /etc/calamares "$@"

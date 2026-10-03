@@ -1,2 +1,8 @@
 work/
 out/
+installer/repo/
+installer/package/src/
+installer/package/pkg/
+installer/package/*.pkg.tar.*
+installer/package/calamares-*.tar.gz
+__pycache__/

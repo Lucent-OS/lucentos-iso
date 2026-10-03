@@ -147,3 +147,7 @@ discord
 
 # Development Tools
 neovim
+
+# Branded graphical installer (from the local lucent-installer repository)
+calamares
+qt6-wayland

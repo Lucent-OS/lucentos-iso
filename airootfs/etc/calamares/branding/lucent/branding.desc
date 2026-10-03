@@ -1,0 +1,34 @@
+---
+componentName: lucent
+welcomeStyleCalamares: false
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 960px,640px
+windowPlacement: center
+sidebar: widget
+navigation: widget
+strings:
+  productName: LucentOS
+  shortProductName: LucentOS
+  version: Rolling
+  shortVersion: Rolling
+  versionedName: LucentOS
+  shortVersionedName: LucentOS
+  bootloaderEntryName: LucentOS
+  productUrl: https://lucentcodeworks.com
+  supportUrl: ""
+  knownIssuesUrl: ""
+  releaseNotesUrl: ""
+  donateUrl: ""
+images:
+  productIcon: logo.svg
+  productLogo: logo.svg
+  productWelcome: welcome.svg
+style:
+  SidebarBackground: "#101827"
+  SidebarText: "#cbd5e1"
+  SidebarTextCurrent: "#101827"
+  SidebarBackgroundCurrent: "#67e8f9"
+slideshow: show.qml
+slideshowAPI: 2
+uploadServer: { type: none }

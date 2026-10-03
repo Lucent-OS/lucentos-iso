@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Install LucentOS
+Comment=Install LucentOS on your computer
+Exec=/usr/local/bin/lucent-installer
+Icon=lucent-installer
+Terminal=false
+Categories=System;
+StartupNotify=true
